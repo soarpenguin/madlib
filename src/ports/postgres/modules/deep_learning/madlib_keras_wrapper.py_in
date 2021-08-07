@@ -161,10 +161,10 @@ def convert_string_of_args_to_dict(str_of_args, strip_quotes=True):
     key_str = ""
     compile_dict = {}
     for char in str_of_args:
-        if char in dual.keys():
+        if char in list(dual.keys()):
             stack.append(char)
             result_str += char
-        elif char in dual.values() and stack:
+        elif char in list(dual.values()) and stack:
             if dual[stack[-1]] == char:
                 stack.pop(-1)
             result_str += char
@@ -244,7 +244,7 @@ def parse_and_validate_compile_params(str_of_args, additional_params=[]):
     return (opt_name, opt_args, compile_dict)
 
 def _validate_metrics(compile_dict):
-    _assert('metrics' not in compile_dict.keys() or
+    _assert('metrics' not in list(compile_dict.keys()) or
             compile_dict['metrics'] is None or
             type(compile_dict['metrics']) is list,
             "wrong input type for compile parameter metrics: multi-output model"
@@ -273,7 +273,7 @@ def parse_optimizer(compile_dict):
     opt_split = compile_dict['optimizer'].split('(')
     opt_name = opt_split[0]
     optimizers = get_optimizers()
-    _assert(opt_name.lower() in [o.lower() for o in optimizers.keys()],
+    _assert(opt_name.lower() in [o.lower() for o in list(optimizers.keys())],
             "model_keras error: invalid optimizer name: {0}".format(opt_name))
 
     # If we use only the optimizer name
@@ -286,11 +286,11 @@ def parse_optimizer(compile_dict):
     else:
         opt_params = opt_split[1][:-1]
         opt_params_array = opt_params.split(',')
-        opt_params_clean = map(split_and_strip, opt_params_array)
+        opt_params_clean = list(map(split_and_strip, opt_params_array))
         key_value_params = { x[0] : x[1] for x in opt_params_clean}
 
         final_args = {}
-        for key,value in key_value_params.iteritems():
+        for key,value in key_value_params.items():
             if value == 'None':
                 final_args[key] = None
             elif value == 'True' or value == 'False':
@@ -348,7 +348,7 @@ def parse_callbacks(callbacks, current_seg_id=-1):
 # Validate the keys of the given dictionary and run literal_eval on the
 # user-defined subset
 def validate_and_literal_eval_keys(keys_dict, literal_eval_list, accepted_list):
-    for ckey in keys_dict.keys():
+    for ckey in list(keys_dict.keys()):
         _assert(ckey in accepted_list,
                 "{0} is not currently accepted as a parameter. ".format(ckey))
         if ckey in literal_eval_list:
@@ -398,20 +398,20 @@ def compile_model(model, compile_params, custom_function_map=None):
     model.compile(**compile_dict)
 
 def validate_compile_param_types(compile_dict):
-    _assert('loss_weights' not in compile_dict.keys() or
+    _assert('loss_weights' not in list(compile_dict.keys()) or
             compile_dict['loss_weights'] is None or
             type(compile_dict['loss_weights']) is list or
             type(compile_dict['loss_weights']) is dict,
             "wrong input type for compile parameter loss_weights: only list "
             "and dictionary are supported.")
 
-    _assert('weighted_metrics' not in compile_dict.keys() or
+    _assert('weighted_metrics' not in list(compile_dict.keys()) or
             compile_dict['weighted_metrics'] is None or
             type(compile_dict['weighted_metrics']) is list,
             "wrong input type for compile parameter weighted_metrics: only list "
             "is supported.")
 
-    _assert('sample_weight_mode' not in compile_dict.keys() or
+    _assert('sample_weight_mode' not in list(compile_dict.keys()) or
             compile_dict['sample_weight_mode'] is None or
             compile_dict['sample_weight_mode'] == "temporal",
             """compile parameter sample_weight_mode can only be "temporal" or None""")

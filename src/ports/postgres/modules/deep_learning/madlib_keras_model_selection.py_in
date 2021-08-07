@@ -130,7 +130,7 @@ class MstLoader():
                                 .format(x, d[x]) for x in sorted(d.keys()))
             dict_dedup[hash_tuple] = string
 
-        return dict_dedup.values()
+        return list(dict_dedup.values())
 
     def find_combinations(self):
         """Backtracking helper for generating the combinations.
@@ -142,7 +142,7 @@ class MstLoader():
         ])
 
         def find_combinations_helper(msts, p, i):
-            param_names = param_grid.keys()
+            param_names = list(param_grid.keys())
             if i < len(param_names):
                 for x in param_grid[param_names[i]]:
                     p[param_names[i]] = x
@@ -446,8 +446,8 @@ class MstSearch():
         # assuming optimizer_params_list is present
         if ModelSelectionSchema.OPTIMIZER_PARAMS_LIST in self.compile_params_dict:
             for opt_params_dict in self.compile_params_dict[ModelSelectionSchema.OPTIMIZER_PARAMS_LIST]:
-                keys, values = zip(*opt_params_dict.items())
-                opt_configs_params = [dict(zip(keys, v)) for v in itertools_product(*values)]
+                keys, values = list(zip(*list(opt_params_dict.items())))
+                opt_configs_params = [dict(list(zip(keys, v))) for v in itertools_product(*values)]
                 copied_compile_dict = deepcopy(self.compile_params_dict)
                 copied_compile_dict[ModelSelectionSchema.OPTIMIZER_PARAMS_LIST] = opt_configs_params
                 self.grid_combinations_helper(copied_compile_dict, self.fit_params_dict)
@@ -457,8 +457,8 @@ class MstSearch():
     def grid_combinations_helper(self, compile_dict, fit_dict):
         combined_dict = dict(compile_dict, **fit_dict)
         combined_dict[ModelSelectionSchema.MODEL_ID] = self.model_id_list
-        keys, values = zip(*combined_dict.items())
-        all_configs_params = [dict(zip(keys, v)) for v in itertools_product(*values)]
+        keys, values = list(zip(*list(combined_dict.items())))
+        all_configs_params = [dict(list(zip(keys, v))) for v in itertools_product(*values)]
 
         # to separate the compile and fit configs
         for config in all_configs_params:

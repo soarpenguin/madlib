@@ -21,7 +21,7 @@
 # Madpack utilities
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-from itertools import izip_longest
+from itertools import zip_longest
 import os
 import re
 import sys
@@ -46,7 +46,7 @@ def error_(src_name, msg, stop=False):
         @param stop program exit flag
     """
     # Print to stdout
-    print("{0}: ERROR : {1}".format(src_name, msg))
+    print(("{0}: ERROR : {1}".format(src_name, msg)))
     # stack trace is not printed
     if stop:
         exit(2)
@@ -60,7 +60,7 @@ def info_(src_name, msg, verbose=True):
         @param verbose prints only if True (prevents caller from performing a check)
     """
     if verbose:
-        print("{0}: INFO : {1}".format(src_name, msg))
+        print(("{0}: INFO : {1}".format(src_name, msg)))
 # ------------------------------------------------------------------------------
 
 def remove_comments_from_sql(sql):
@@ -223,7 +223,7 @@ def is_rev_gte(left, right):
     if all_numeric(left) and all_numeric(right):
         return left >= right
     else:
-        for i, (l_e, r_e) in enumerate(izip_longest(left, right)):
+        for i, (l_e, r_e) in enumerate(zip_longest(left, right)):
             if isinstance(l_e, int) and isinstance(r_e, int):
                 if l_e == r_e:
                     continue
@@ -272,7 +272,7 @@ def get_rev_num(rev):
         num += [0] * (3 - len(num))  # normalize num to be of length 3
         # get identifier part of the version string
         if len(rev_parts) > 1:
-            num.extend(map(str, rev_parts[1:]))
+            num.extend(list(map(str, rev_parts[1:])))
         if not num:
             num = [0]
         return num

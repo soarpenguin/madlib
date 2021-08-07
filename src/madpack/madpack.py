@@ -26,12 +26,12 @@ from utilities import run_query
 # Required Python version
 py_min_ver = [2, 6]
 
-# Check python version
-if sys.version_info[:2] < py_min_ver:
-    print("ERROR: python version too old ({0}). You need {1} or greater.".
-          format('.'.join(map(str, sys.version_info[:3])),
-                 '.'.join(map(str, py_min_ver))))
-    exit(1)
+# XXX Check python version
+#if sys.version_info[:2] < py_min_ver:
+#    print(("ERROR: python version too old ({0}). You need {1} or greater.".
+#          format('.'.join(map(str, sys.version_info[:3])),
+#                 '.'.join(map(str, py_min_ver)))))
+#    exit(1)
 
 # Find MADlib root directory. This file is installed to
 # $MADLIB_ROOT/madpack/madpack.py, so to get $MADLIB_ROOT we need to go
@@ -82,7 +82,7 @@ def _make_dir(dir):
         try:
             os.makedirs(dir)
         except:
-            print "ERROR: can not create directory: %s. Check permissions." % dir
+            print("ERROR: can not create directory: %s. Check permissions." % dir)
             exit(1)
 # ------------------------------------------------------------------------------
 
@@ -327,9 +327,9 @@ def _parse_result_logfile(retval, logfile, sql_abspath,
 
     if is_install_check_logfile:
         # Output result
-        print "TEST CASE RESULT|Module: " + module + \
+        print("TEST CASE RESULT|Module: " + module + \
             "|" + os.path.basename(sql_filename) + "|" + result + \
-            "|Time: %d milliseconds" % (milliseconds)
+            "|Time: %d milliseconds" % (milliseconds))
 
     if result == 'FAIL':
         error_(this, "Failed executing %s" % sql_abspath, stop=False)
@@ -1100,9 +1100,9 @@ def _append_uninstall_madlib_sqlfile(schema, db_madlib_ver, is_schema_in_db,
                   ao['column'] + ' : ' + ao['type'], True)
     info_(this, "***********************************************************************************", True)
     info_(this, "Would you like to continue? [Y/N]", True)
-    go = raw_input('>>> ').upper()
+    go = input('>>> ').upper()
     while (go not in ('Y', 'N', 'YES', 'NO')):
-        go = raw_input('Yes or No >>> ').upper()
+        go = input('Yes or No >>> ').upper()
 
     # 2) Do the uninstall/drop
     if go in ('N', 'NO'):
@@ -1279,7 +1279,7 @@ def main(argv):
     global tmpdir
     try:
         tmpdir = tempfile.mkdtemp('', 'madlib.', args.tmpdir)
-    except OSError, e:
+    except OSError as e:
         tmpdir = e.filename
         error_(this, "cannot create temporary directory: '%s'." % tmpdir, True)
 
@@ -1486,4 +1486,4 @@ if __name__ == "__main__":
     if not keeplogs:
         shutil.rmtree(tmpdir)
     else:
-        print "INFO: Log files saved in " + tmpdir
+        print("INFO: Log files saved in " + tmpdir)

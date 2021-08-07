@@ -247,7 +247,7 @@ class CategoricalEncoder(object):
 
     def _is_col_name_long(self, col_to_values):
         col_len = []
-        for col, values in col_to_values.items():
+        for col, values in list(col_to_values.items()):
             # Max col name length calculation:
             #       the name of column (col) +
             #       name of longest value in column (item) +

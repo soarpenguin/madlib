@@ -243,7 +243,7 @@ class AutoMLHyperopt(KerasAutoML):
                 name = o_param + '_' + str(counter)
                 hyperopt_search_dict[name] = self.get_hyperopt_exps(name, optimizer_dict[o_param])
             # appending deep copy
-            hyperopt_search_space_lst.append({k:v for k, v in hyperopt_search_dict.items()})
+            hyperopt_search_space_lst.append({k:v for k, v in list(hyperopt_search_dict.items())})
             for o_param in optimizer_dict:
                 name = o_param + '_' + str(counter)
                 del hyperopt_search_dict[name]

@@ -574,7 +574,7 @@ def forest_train(
                                     grouping_cols,
                                     tree_terminated)
 
-                num_failed_groups = sum(1 for v in tree_terminated.values() if v != 1)
+                num_failed_groups = sum(1 for v in list(tree_terminated.values()) if v != 1)
                 _create_summary_table(**locals())
 
                 sql_cleanup = """
@@ -651,7 +651,7 @@ def forest_predict(schema_madlib, model, source, output,
     if not is_classification:
         majority_pred_expression = "AVG(aggregated_prediction)"
     else:
-        dep_levels_array_str = py_list_to_sql_string(map(quote_literal, dep_levels),
+        dep_levels_array_str = py_list_to_sql_string(list(map(quote_literal, dep_levels)),
                                                      'TEXT',
                                                      long_format=True)
         majority_pred_expression = (
@@ -1290,8 +1290,8 @@ def _create_group_table(
     plan_create_group_table = plpy.prepare(sql_create_group_table,
                                            ['text[]', 'boolean[]'])
     plpy.execute(plan_create_group_table,
-                 [tree_terminated.keys(),
-                  [True if v == 1 else False for v in tree_terminated.values()]])
+                 [list(tree_terminated.keys()),
+                  [True if v == 1 else False for v in list(tree_terminated.values())]])
 # -------------------------------------------------------------------------
 
 

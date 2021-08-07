@@ -1020,9 +1020,9 @@ def index_sort(arr, **kwargs):
     # process arrays for GPDB < 4.1 and PG < 9.0
     arr = string_to_array(arr, False)
     dim = len(arr)
-    idx = range(dim)
+    idx = list(range(dim))
     idx.sort(key=lambda r: arr[r])
-    return array_to_string(map(lambda r: r + 1, idx))
+    return array_to_string([r + 1 for r in idx])
 
 
 def _convert_data_table(schema_madlib, data_table):

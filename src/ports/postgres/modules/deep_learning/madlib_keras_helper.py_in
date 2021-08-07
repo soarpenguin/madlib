@@ -302,7 +302,7 @@ def get_accessible_gpus_for_seg(schema_madlib, segments_per_host, module_name):
         accessible_gpus_for_seg = [0] * len(seg_query_result)
         warning_flag = True
         for i in seg_query_result:
-            if i['hostname'] in host_dict.keys():
+            if i['hostname'] in list(host_dict.keys()):
                 accessible_gpus_for_seg[i['segment_id']] = host_dict[i['hostname']]
             if 0 < accessible_gpus_for_seg[i['segment_id']] < segments_per_host[i['segment_id']] and warning_flag:
                 plpy.warning(
@@ -339,7 +339,7 @@ def py_to_sql(x):
     if type(x) == float:
         return sqlfloat(x)
     elif type(x) == list:
-        return map(py_to_sql, x)
+        return list(map(py_to_sql, x))
     elif x is None:
         return sqlnull()
     else:

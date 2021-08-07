@@ -518,7 +518,7 @@ def _validate_sssp(vertex_table, vertex_id, edge_table, edge_params,
     validate_graph_coding(vertex_table, vertex_id, edge_table, edge_params,
                           out_table, 'SSSP')
 
-    _assert(isinstance(source_vertex, int) or isinstance(source_vertex, long),
+    _assert(isinstance(source_vertex, int) or isinstance(source_vertex, int),
             """Graph SSSP: Source vertex {source_vertex} has to be an integer.""".
             format(**locals()))
     src_exists = plpy.execute("""

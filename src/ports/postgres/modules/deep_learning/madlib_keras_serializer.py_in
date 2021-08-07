@@ -19,6 +19,7 @@
 import numpy as np
 import plpy
 from utilities.utilities import _assert
+from functools import reduce
 
 # TODO
 # 1. Current serializing logic
