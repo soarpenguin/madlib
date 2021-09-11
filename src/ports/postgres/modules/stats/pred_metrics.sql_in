@@ -414,7 +414,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.mean_abs_error(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_abs_error(
@@ -434,7 +434,7 @@ RETURNS TEXT AS $$
     with AOControl(False):
         return pred_metrics.metric_agg_help_msg(schema_madlib, message,
                                                 'mean_abs_error')
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_abs_error()
@@ -468,7 +468,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.mean_abs_perc_error(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_abs_perc_error(
@@ -488,7 +488,7 @@ RETURNS TEXT AS $$
     with AOControl(False):
         return pred_metrics.metric_agg_help_msg(schema_madlib, message,
                                                 'mean_abs_perc_error')
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_abs_perc_error()
@@ -522,7 +522,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.mean_perc_error(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_perc_error(
@@ -542,7 +542,7 @@ RETURNS TEXT AS $$
     with AOControl(False):
         return pred_metrics.metric_agg_help_msg(schema_madlib, message,
                                                 'mean_perc_error')
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_perc_error()
@@ -576,7 +576,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.mean_squared_error(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_squared_error(
@@ -596,7 +596,7 @@ RETURNS TEXT AS $$
     with AOControl(False):
         return pred_metrics.metric_agg_help_msg(schema_madlib, message,
                                                 'mean_squared_error')
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.mean_squared_error()
@@ -630,7 +630,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.r2_score(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.r2_score(
@@ -649,7 +649,7 @@ RETURNS TEXT AS $$
     PythonFunctionBodyOnly(`stats', `pred_metrics')
     with AOControl(False):
         return pred_metrics.r2_score_help(schema_madlib, message)
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.r2_score()
@@ -689,7 +689,7 @@ AS $$
         return pred_metrics.adjusted_r2_score(
             table_in, table_out, prediction_col, observed_col,
             num_predictors, training_size, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.adjusted_r2_score(
@@ -710,7 +710,7 @@ RETURNS TEXT AS $$
     PythonFunctionBodyOnly(`stats', `pred_metrics')
     with AOControl(False):
         return pred_metrics.adjusted_r2_score_help(schema_madlib, message)
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.adjusted_r2_score()
@@ -743,7 +743,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.binary_classifier(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.binary_classifier(
@@ -762,7 +762,7 @@ RETURNS TEXT AS $$
     PythonFunctionBodyOnly(`stats', `pred_metrics')
     with AOControl(False):
         return pred_metrics.binary_classifier_help(schema_madlib, message)
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.binary_classifier()
@@ -795,7 +795,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.area_under_roc(
             table_in, table_out, prediction_col, observed_col, grouping_cols)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.area_under_roc(
@@ -814,7 +814,7 @@ RETURNS TEXT AS $$
     PythonFunctionBodyOnly(`stats', `pred_metrics')
     with AOControl(False):
         return pred_metrics.area_under_roc_help(schema_madlib, message)
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.area_under_roc()
@@ -846,7 +846,7 @@ AS $$
     with AOControl(False):
         return pred_metrics.confusion_matrix(
             table_in, table_out, prediction_col, observed_col)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.confusion_matrix(message TEXT)
@@ -854,7 +854,7 @@ RETURNS TEXT AS $$
     PythonFunctionBodyOnly(`stats', `pred_metrics')
     with AOControl(False):
         return pred_metrics.confusion_matrix_help(schema_madlib, message)
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.confusion_matrix()

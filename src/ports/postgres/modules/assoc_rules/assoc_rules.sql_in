@@ -588,7 +588,7 @@ AS $$
                                        max_rhs_size
                                        );
 
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.assoc_rules
@@ -622,7 +622,7 @@ AS $$
                                        None
                                        );
 
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 
@@ -656,7 +656,7 @@ AS $$
                                        None
                                        );
 
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 
@@ -693,7 +693,7 @@ AS $$
                                        None,
                                        None);
 
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 
@@ -724,7 +724,7 @@ AS $$
                                        10,
                                        None,
                                        None);
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 --------------------------------------------------------------------------
@@ -732,7 +732,7 @@ m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.assoc_rules(message TEXT)
 RETURNS text AS $$
 PythonFunction(assoc_rules, assoc_rules, assoc_rules_help_message)
-$$ language plpythonu
+$$ language plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.assoc_rules()

@@ -380,7 +380,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan(
     algorithm                   VARCHAR
 ) RETURNS VOID AS $$
     PythonFunction(dbscan, dbscan, dbscan)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan(
@@ -427,7 +427,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan_predict(
     output_table                VARCHAR
 ) RETURNS VOID AS $$
     PythonFunction(dbscan, dbscan, dbscan_predict)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
 
 
@@ -435,24 +435,24 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan(
     message                VARCHAR
 ) RETURNS VARCHAR AS $$
     PythonFunction(dbscan, dbscan, dbscan_help)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan(
 ) RETURNS VARCHAR AS $$
     PythonFunction(dbscan, dbscan, dbscan_help)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan_predict(
     message                VARCHAR
 ) RETURNS VARCHAR AS $$
     PythonFunction(dbscan, dbscan, dbscan_predict_help)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.dbscan_predict(
 ) RETURNS VARCHAR AS $$
     PythonFunction(dbscan, dbscan, dbscan_predict_help)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');

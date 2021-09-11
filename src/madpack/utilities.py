@@ -28,6 +28,9 @@ import sys
 import subprocess
 import unittest
 
+# Import MADlib python modules
+import configyml
+
 # Some read-only variables
 this = os.path.basename(sys.argv[0])    # name of this script
 
@@ -112,7 +115,8 @@ def run_query(sql, con_args, show_error=True):
     if err:
         if show_error:
             error_("SQL command failed: \nSQL: %s \n%s" % (sql, err), False)
-        if 'password' in err:
+        # XXX py3
+        if 'password' in err.decode():
             raise EnvironmentError
         else:
             raise Exception
@@ -121,6 +125,8 @@ def run_query(sql, con_args, show_error=True):
     results = []  # list of rows
     i = 0
     for line in std.splitlines():
+        # XXX py3
+        line = line.decode()
         if i == 0:
             cols = [name for name in line.split(delimiter)]
         else:
@@ -175,7 +181,7 @@ def get_db_madlib_version(con_args, schema):
 def get_dbver(con_args, portid):
     """ Read version number from database (of form X.Y) """
     try:
-        versionStr = run_query("SELECT pg_catalog.version()", con_args, True)[0]['version']
+        versionStr = run_query("SELECT pg_catalog.version();", con_args, True)[0]['version']
         if portid == 'postgres':
             match = re.search("PostgreSQL[a-zA-Z\s]*(\d+\.\d+)", versionStr)
         elif portid == 'greenplum':

@@ -174,7 +174,7 @@ def topsort_modules(conf):
                 if v not in inverted:
                     inverted[v] = set()
                 inverted[v].add(k)
-        print("configyml : ERROR : required modules missing from Modules.yml: ") 
+        print("configyml : ERROR : required modules missing from Modules.yml: ")
         for m in missing:
             print("    " + m + " (required by " + str(list(inverted[m])) + ")")
         exit(2)

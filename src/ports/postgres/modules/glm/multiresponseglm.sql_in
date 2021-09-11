@@ -633,7 +633,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom(
     verbose             boolean
 ) RETURNS void AS $$
 PythonFunction(glm, multinom, multinom)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 -- entry functions with default values
@@ -702,7 +702,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom(
     message    TEXT
 ) RETURNS TEXT AS $$
     PythonFunction(glm, multinom, multinom_help_msg)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom()
@@ -725,7 +725,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom_predict(
     id_column           varchar
 ) RETURNS void AS $$
 PythonFunction(glm, multinom, multinom_predict)
-$$ LANGUAGE plpythonu
+$$ LANGUAGE plpython3u
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom_predict(
@@ -764,7 +764,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom_predict(
     message    TEXT
 ) RETURNS TEXT AS $$
     PythonFunction(glm, multinom, multinom_predict_help_msg)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.multinom_predict()

@@ -731,7 +731,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pivot(
 
 ) RETURNS VOID AS $$
     PythonFunction(utilities, pivot, pivot)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pivot(
@@ -837,7 +837,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pivot(
     message VARCHAR
 ) RETURNS VARCHAR AS $$
     PythonFunction(utilities, pivot, pivot_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `CONTAINS SQL', `');
 
 --------------------------------------------------------------------------------

@@ -576,7 +576,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_logregr(
     message VARCHAR
 ) RETURNS VARCHAR AS $$
     PythonFunction(regress, marginal, margins_logregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 --------------------------------------
@@ -641,7 +641,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_logregr(
   )
 RETURNS VOID AS $$
 PythonFunction(regress, marginal, margins_logregr)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 --------------------------------------
@@ -853,7 +853,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_mlogregr(
 )
 RETURNS VARCHAR AS $$
 PythonFunction(regress, marginal, margins_mlogregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_mlogregr()
@@ -908,7 +908,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_mlogregr(
   )
 RETURNS VOID AS $$
 PythonFunction(regress, marginal, margins_mlogregr_new)
-$$ LANGUAGE plpythonu;
+$$ LANGUAGE plpython3u;
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_mlogregr(
      model_table                VARCHAR       -- name of the mlogregr model table
@@ -934,7 +934,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins_mlogregr(
   )
 RETURNS VOID AS $$
 PythonFunction(regress, marginal, margins_mlogregr_main)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 /**
@@ -1535,7 +1535,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins(
   )
 RETURNS VOID AS $$
 PythonFunction(regress, margins, margins)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 
@@ -1576,7 +1576,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.margins(
     message VARCHAR
 ) RETURNS VARCHAR AS $$
     PythonFunction(regress, margins, margins_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 --------------------------------------

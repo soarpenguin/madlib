@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Main Madpack installation executable.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -26,7 +26,7 @@ from utilities import run_query
 # Required Python version
 py_min_ver = [2, 6]
 
-# XXX Check python version
+# XXX py3 Check python version
 #if sys.version_info[:2] < py_min_ver:
 #    print(("ERROR: python version too old ({0}). You need {1} or greater.".
 #          format('.'.join(map(str, sys.version_info[:3])),
@@ -54,6 +54,7 @@ maddir_lib = maddir + "/lib/libmadlib.so"  # C/C++ libraries
 
 # Read the config files
 ports = configyml.get_ports(maddir_conf)  # object made of Ports.yml
+# XXX py3
 new_madlib_ver = configyml.get_version(maddir_conf)  # MADlib OS-level version
 portid_list = []
 for port in ports:
@@ -387,19 +388,21 @@ def _plpy_check(py_min_ver):
 
     # Check PL/Python existence
     rv = _internal_run_query("SELECT count(*) AS CNT FROM pg_language "
-                             "WHERE lanname = 'plpythonu'", True)
+                             "WHERE lanname = 'plpython3u'", True)
     if int(rv[0]['cnt']) > 0:
         info_(this, "> PL/Python already installed", verbose)
     else:
         info_(this, "> PL/Python not installed", verbose)
         info_(this, "> Creating language PL/Python...", True)
         try:
-            _internal_run_query("CREATE LANGUAGE plpythonu;", True)
+            # XXX py3
+            _internal_run_query("CREATE LANGUAGE plpython3u;", True)
         except:
-            error_(this, """Cannot create language plpythonu. Please check if you
+            error_(this, """Cannot create language plpython3u. Please check if you
                 have configured and installed portid (your platform) with
                 `--with-python` option. Stopping installation...""", False)
-            raise Exception
+            # XXX py3
+            #raise Exception
 
     # Check PL/Python version
     _internal_run_query("DROP FUNCTION IF EXISTS plpy_version_for_madlib();", False)
@@ -411,7 +414,7 @@ def _plpy_check(py_min_ver):
             # return '.'.join(str(item) for item in sys.version_info[:3])
             return str(sys.version_info[:3]).replace(',','.').replace(' ','').replace(')','').replace('(','')
         $$
-        LANGUAGE plpythonu;
+        LANGUAGE plpython3u;
     """, True)
     rv = _internal_run_query("SELECT plpy_version_for_madlib() AS ver;", True)
     python = rv[0]['ver']
@@ -641,6 +644,9 @@ def _process_py_sql_files_in_modules(modset, args_dict):
             maddir_mod_py = maddir + "/ports/" + portid + "/" + dbver + "/modules"
         else:
             maddir_mod_py = maddir + "/modules"
+
+        ### XXX PY3
+        info_(this, "\ncalling_operation: %s, %s" % (calling_operation, maddir_mod_py), verbose)
 
         # Find the SQL module dir (platform specific or generic)
         if os.path.isdir(maddir + "/ports/" + portid + "/modules/" + module):
@@ -1354,6 +1360,7 @@ def main(argv):
         supportedVersions = [dirItem for dirItem in os.listdir(portdir)
                              if os.path.isdir(os.path.join(portdir, dirItem)) and
                              re.match("^\d+", dirItem)]
+
         if dbver is None:
             dbver = ".".join(
                 map(str, max([versionStr.split('.')

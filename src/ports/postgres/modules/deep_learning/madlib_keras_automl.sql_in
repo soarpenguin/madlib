@@ -1385,7 +1385,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.hyperband_schedule(
         with MinWarning('warning'):
             schedule_loader = madlib_keras_automl_hyperband.HyperbandSchedule(schedule_table, r, eta, skip_last)
             schedule_loader.load()
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
               m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.madlib_keras_automl(
@@ -1419,5 +1419,5 @@ elif automl_method.lower() == 'hyperopt':
             schedule_loader = madlib_keras_automl_hyperopt.AutoMLHyperopt(**globals())
 else:
     plpy.error("madlib_keras_automl: The chosen automl method must be 'hyperband' or 'hyperopt'")
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
     m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');

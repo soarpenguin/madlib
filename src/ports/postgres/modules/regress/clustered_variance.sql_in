@@ -460,7 +460,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_linregr (
     grouping_col    TEXT
 ) RETURNS VOID AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_linregr)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 ------------------------------------------------------------------------
@@ -484,7 +484,7 @@ m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_linregr (
 ) RETURNS TEXT AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_linregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 ------------------------------------------------------------------------
@@ -494,7 +494,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_linregr (
     msg         TEXT
 ) RETURNS TEXT AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_linregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 ------------------------------------------------------------------------
@@ -631,7 +631,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_logregr (
     verbose_mode         BOOLEAN
 ) RETURNS VOID AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_logregr)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 ------------------------------------------------------------------------
@@ -730,7 +730,7 @@ m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_logregr (
 ) RETURNS TEXT AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_logregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 ------------------------------------------------------------------------
@@ -740,7 +740,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_logregr (
     msg         TEXT
 ) RETURNS TEXT AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_logregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 ------------------------------------------------------------------------
@@ -829,7 +829,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_mlogregr (
     verbose_mode        BOOLEAN         -- printing warning message or not (default False)
 ) RETURNS VOID AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_mlogregr)
-$$ LANGUAGE plpythonu VOLATILE
+$$ LANGUAGE plpython3u VOLATILE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 
 ------------------------------------------------------------------------
@@ -900,7 +900,7 @@ m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_mlogregr (
 ) RETURNS TEXT AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_mlogregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 ------------------------------------------------------------------------
@@ -910,7 +910,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.clustered_variance_mlogregr (
     msg         TEXT
 ) RETURNS TEXT AS $$
     PythonFunction(regress, clustered_variance, clustered_variance_mlogregr_help)
-$$ LANGUAGE plpythonu IMMUTABLE
+$$ LANGUAGE plpython3u IMMUTABLE
 m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 ------------------------------------------------------------------------
