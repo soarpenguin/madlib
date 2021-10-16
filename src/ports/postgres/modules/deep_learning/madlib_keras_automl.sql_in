@@ -1407,13 +1407,14 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.madlib_keras_automl(
     description                    VARCHAR DEFAULT NULL,
     use_caching                    BOOLEAN DEFAULT FALSE
 ) RETURNS VOID AS $$
+global schema_madlib
 if automl_method is None or automl_method.lower() == 'hyperband':
-    PythonFunctionBodyOnly(`deep_learning', `madlib_keras_automl_hyperband')
+    PythonFunctionBodyOnlyNoGlobalSchema(`deep_learning', `madlib_keras_automl_hyperband')
     with AOControl(False):
         with MinWarning('warning'):
             schedule_loader = madlib_keras_automl_hyperband.AutoMLHyperband(**globals())
 elif automl_method.lower() == 'hyperopt':
-    PythonFunctionBodyOnly(`deep_learning', `madlib_keras_automl_hyperopt')
+    PythonFunctionBodyOnlyNoGlobalSchema(`deep_learning', `madlib_keras_automl_hyperopt')
     with AOControl(False):
         with MinWarning('warning'):
             schedule_loader = madlib_keras_automl_hyperopt.AutoMLHyperopt(**globals())
