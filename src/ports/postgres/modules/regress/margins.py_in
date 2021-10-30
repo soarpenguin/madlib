@@ -17,8 +17,8 @@ from utilities.utilities import py_list_to_sql_string
 from utilities.utilities import add_postfix
 from utilities.control import MinWarning
 
-from margins_builder import MarginalEffectsBuilder
-from margins_builder import TermBase
+from regress.margins_builder import MarginalEffectsBuilder
+from regress.margins_builder import TermBase
 
 import re
 #------------------------------------------------------------------------------

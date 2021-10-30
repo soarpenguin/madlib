@@ -47,7 +47,7 @@ from utilities.utilities import get_seg_number
 from utilities.validate_args import input_tbl_valid
 from utilities.validate_args import get_expr_type
 
-from madlib_keras_helper import *
+from deep_learning.madlib_keras_helper import *
 import time
 
 NUM_CLASSES_COLNAME = "num_classes"

@@ -3,7 +3,7 @@ import plpy
 from binding import *
 import binding
 from pyxb.utils.domutils import BindingDOMSupport as bds
-from formula import Formula
+from pmml.formula import Formula
 
 from glm.glm import __extract_family_params as extract_family_params
 

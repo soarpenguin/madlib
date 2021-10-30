@@ -4,7 +4,7 @@ import plpy
 
 from collections import defaultdict
 
-from kernel_approximation import create_kernel, load_kernel
+from svm.kernel_approximation import create_kernel, load_kernel
 
 from utilities.control import MinWarning
 from utilities.in_mem_group_control import GroupIterationController

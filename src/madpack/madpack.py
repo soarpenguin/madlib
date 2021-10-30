@@ -646,7 +646,7 @@ def _process_py_sql_files_in_modules(modset, args_dict):
             maddir_mod_py = maddir + "/modules"
 
         ### XXX PY3
-        info_(this, "\ncalling_operation: %s, %s" % (calling_operation, maddir_mod_py), verbose)
+        # info_(this, "\ncalling_operation: %s, %s" % (calling_operation, maddir_mod_py), verbose)
 
         # Find the SQL module dir (platform specific or generic)
         if os.path.isdir(maddir + "/ports/" + portid + "/modules/" + module):

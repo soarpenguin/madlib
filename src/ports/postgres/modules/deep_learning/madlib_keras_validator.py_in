@@ -18,22 +18,22 @@
 # under the License.
 
 import plpy
-from input_data_preprocessor import DistributionRulesOptions
-from keras_model_arch_table import ModelArchSchema
-from model_arch_info import get_num_classes
-from madlib_keras_custom_function import CustomFunctionSchema
-from madlib_keras_helper import CLASS_VALUES_COLNAME
-from madlib_keras_helper import COMPILE_PARAMS_COLNAME
-from madlib_keras_helper import DEPENDENT_VARNAME_COLNAME
-from madlib_keras_helper import DEPENDENT_VARTYPE_COLNAME
-from madlib_keras_helper import MODEL_ID_COLNAME
-from madlib_keras_helper import MODEL_ARCH_TABLE_COLNAME
-from madlib_keras_helper import MODEL_WEIGHTS_COLNAME
-from madlib_keras_helper import NORMALIZING_CONST_COLNAME
-from madlib_keras_helper import DISTRIBUTION_KEY_COLNAME
-from madlib_keras_helper import METRIC_TYPE_COLNAME
-from madlib_keras_helper import INTERNAL_GPU_CONFIG
-from madlib_keras_helper import query_model_configs
+from deep_learning.input_data_preprocessor import DistributionRulesOptions
+from deep_learning.keras_model_arch_table import ModelArchSchema
+from deep_learning.model_arch_info import get_num_classes
+from deep_learning.madlib_keras_custom_function import CustomFunctionSchema
+from deep_learning.madlib_keras_helper import CLASS_VALUES_COLNAME
+from deep_learning.madlib_keras_helper import COMPILE_PARAMS_COLNAME
+from deep_learning.madlib_keras_helper import DEPENDENT_VARNAME_COLNAME
+from deep_learning.madlib_keras_helper import DEPENDENT_VARTYPE_COLNAME
+from deep_learning.madlib_keras_helper import MODEL_ID_COLNAME
+from deep_learning.madlib_keras_helper import MODEL_ARCH_TABLE_COLNAME
+from deep_learning.madlib_keras_helper import MODEL_WEIGHTS_COLNAME
+from deep_learning.madlib_keras_helper import NORMALIZING_CONST_COLNAME
+from deep_learning.madlib_keras_helper import DISTRIBUTION_KEY_COLNAME
+from deep_learning.madlib_keras_helper import METRIC_TYPE_COLNAME
+from deep_learning.madlib_keras_helper import INTERNAL_GPU_CONFIG
+from deep_learning.madlib_keras_helper import query_model_configs
 
 from utilities.minibatch_validation import validate_bytea_var_for_minibatch
 from utilities.utilities import _assert
@@ -47,10 +47,10 @@ from utilities.validate_args import columns_exist_in_table
 from utilities.validate_args import get_expr_type
 from utilities.validate_args import input_tbl_valid
 from utilities.validate_args import output_tbl_valid
-from madlib_keras_wrapper import parse_and_validate_fit_params
-from madlib_keras_wrapper import parse_and_validate_compile_params
-from madlib_keras_custom_function import update_builtin_metrics
-from madlib_keras_custom_function import update_builtin_losses
+from deep_learning.madlib_keras_wrapper import parse_and_validate_fit_params
+from deep_learning.madlib_keras_wrapper import parse_and_validate_compile_params
+from deep_learning.madlib_keras_custom_function import update_builtin_metrics
+from deep_learning.madlib_keras_custom_function import update_builtin_losses
 import tensorflow.keras.losses as losses
 import tensorflow.keras.metrics as metrics
 

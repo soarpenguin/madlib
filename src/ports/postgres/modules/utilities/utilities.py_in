@@ -7,18 +7,18 @@ import random
 from distutils.util import strtobool
 # import numpy as np
 
-from validate_args import _get_table_schema_names
-from validate_args import cols_in_tbl_valid
-from validate_args import does_exclude_reserved
-from validate_args import explicit_bool_to_text
-from validate_args import get_cols
-from validate_args import get_first_schema
-from validate_args import input_tbl_valid
-from validate_args import is_var_valid
-from validate_args import output_tbl_valid
-from validate_args import quote_ident
-from validate_args import unquote_ident
-from validate_args import drop_tables
+from utilities.validate_args import _get_table_schema_names
+from utilities.validate_args import cols_in_tbl_valid
+from utilities.validate_args import does_exclude_reserved
+from utilities.validate_args import explicit_bool_to_text
+from utilities.validate_args import get_cols
+from utilities.validate_args import get_first_schema
+from utilities.validate_args import input_tbl_valid
+from utilities.validate_args import is_var_valid
+from utilities.validate_args import output_tbl_valid
+from utilities.validate_args import quote_ident
+from utilities.validate_args import unquote_ident
+from utilities.validate_args import drop_tables
 import plpy
 
 m4_changequote(`<!', `!>')

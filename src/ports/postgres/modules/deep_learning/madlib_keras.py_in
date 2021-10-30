@@ -23,13 +23,13 @@ import plpy
 import sys
 import time
 
-from madlib_keras_helper import *
-from madlib_keras_validator import *
-from madlib_keras_wrapper import *
-from model_arch_info import *
+from deep_learning.madlib_keras_helper import *
+from deep_learning.madlib_keras_validator import *
+from deep_learning.madlib_keras_wrapper import *
+from deep_learning.model_arch_info import *
 import tensorflow as tf
 
-from madlib_keras_model_selection import ModelSelectionSchema
+from deep_learning.madlib_keras_model_selection import ModelSelectionSchema
 
 from internal.db_utils import quote_literal
 from utilities.utilities import _assert

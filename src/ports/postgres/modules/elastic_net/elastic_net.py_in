@@ -1,12 +1,12 @@
 
 import plpy
-from elastic_net_models import _elastic_net_gaussian_igd_train
-from elastic_net_models import _elastic_net_gaussian_fista_train
-from elastic_net_models import _elastic_net_binomial_fista_train
-from elastic_net_models import _elastic_net_binomial_igd_train
-from elastic_net_utils import _generate_warmup_lambda_sequence
+from elastic_net.elastic_net_models import _elastic_net_gaussian_igd_train
+from elastic_net.elastic_net_models import _elastic_net_gaussian_fista_train
+from elastic_net.elastic_net_models import _elastic_net_binomial_fista_train
+from elastic_net.elastic_net_models import _elastic_net_binomial_igd_train
+from elastic_net.elastic_net_utils import _generate_warmup_lambda_sequence
 
-from elastic_net_utils import BINOMIAL_FAMILIES, GAUSSIAN_FAMILIES, OPTIMIZERS
+from elastic_net.elastic_net_utils import BINOMIAL_FAMILIES, GAUSSIAN_FAMILIES, OPTIMIZERS
 
 from utilities.validate_args import is_col_array
 from utilities.utilities import is_string_formatted_as_array_expression

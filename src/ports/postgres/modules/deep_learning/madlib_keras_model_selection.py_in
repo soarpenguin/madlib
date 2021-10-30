@@ -19,17 +19,17 @@
 from ast import literal_eval
 from collections import OrderedDict
 from itertools import product as itertools_product
-from keras_model_arch_table import ModelArchSchema
+from deep_learning.keras_model_arch_table import ModelArchSchema
 import numpy as np
 import plpy
 from copy import deepcopy
 
-from madlib_keras_custom_function import CustomFunctionSchema
-from madlib_keras_helper import generate_row_string
-from madlib_keras_validator import MstLoaderInputValidator
-from madlib_keras_wrapper import convert_string_of_args_to_dict
-from madlib_keras_wrapper import parse_and_validate_fit_params
-from madlib_keras_wrapper import parse_and_validate_compile_params
+from deep_learning.madlib_keras_custom_function import CustomFunctionSchema
+from deep_learning.madlib_keras_helper import generate_row_string
+from deep_learning.madlib_keras_validator import MstLoaderInputValidator
+from deep_learning.madlib_keras_wrapper import convert_string_of_args_to_dict
+from deep_learning.madlib_keras_wrapper import parse_and_validate_fit_params
+from deep_learning.madlib_keras_wrapper import parse_and_validate_compile_params
 from utilities.control import MinWarning
 from utilities.utilities import add_postfix, _assert, _assert_equal, extract_keyvalue_params
 from utilities.utilities import quote_ident, get_schema, is_platform_pg

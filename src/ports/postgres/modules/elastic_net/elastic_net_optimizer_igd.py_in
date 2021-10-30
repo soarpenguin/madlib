@@ -2,15 +2,15 @@
 import plpy
 from utilities.utilities import unique_string
 from utilities.in_mem_group_control import GroupIterationController
-from elastic_net_utils import _compute_means
-from elastic_net_utils import _normalize_data
-from elastic_net_utils import _compute_scales
-from elastic_net_utils import _elastic_net_validate_args
+from elastic_net.elastic_net_utils import _compute_means
+from elastic_net.elastic_net_utils import _normalize_data
+from elastic_net.elastic_net_utils import _compute_scales
+from elastic_net.elastic_net_utils import _elastic_net_validate_args
 from utilities.utilities import _array_to_string
-from elastic_net_utils import _compute_average_sq
-from elastic_net_utils import _generate_warmup_lambda_sequence
-from elastic_net_utils import _process_warmup_lambdas
-from elastic_net_generate_result import _elastic_net_generate_result
+from elastic_net.elastic_net_utils import _compute_average_sq
+from elastic_net.elastic_net_utils import _generate_warmup_lambda_sequence
+from elastic_net.elastic_net_utils import _process_warmup_lambdas
+from elastic_net.elastic_net_generate_result import _elastic_net_generate_result
 from utilities.utilities import extract_keyvalue_params
 from utilities.control import MinWarning
 

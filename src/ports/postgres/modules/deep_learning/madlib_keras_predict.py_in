@@ -19,10 +19,10 @@
 
 import plpy
 
-from model_arch_info import *
-from madlib_keras_helper import *
-from madlib_keras_validator import *
-from predict_input_params import PredictParamsProcessor
+from deep_learning.model_arch_info import *
+from deep_learning.madlib_keras_helper import *
+from deep_learning.madlib_keras_validator import *
+from deep_learning.predict_input_params import PredictParamsProcessor
 from utilities.control import MinWarning
 from utilities.utilities import _assert
 from utilities.utilities import add_postfix
@@ -33,7 +33,7 @@ from utilities.validate_args import get_expr_type
 from utilities.validate_args import input_tbl_valid
 from utilities.validate_args import quote_ident
 
-from madlib_keras_wrapper import *
+from deep_learning.madlib_keras_wrapper import *
 
 import tensorflow as tf
 from tensorflow import keras
