@@ -29,6 +29,7 @@ from deep_learning.madlib_keras_fit_multiple_model import FitMultipleModel
 from deep_learning.madlib_keras_model_selection import MstSearch, ModelSelectionSchema
 from utilities.validate_args import table_exists, drop_tables, input_tbl_valid
 
+
 class HyperbandSchedule():
     """The utility class for loading a hyperband schedule table with algorithm inputs.
 
@@ -138,6 +139,7 @@ class HyperbandSchedule():
                                       r_i_col=AutoMLConstants.RESOURCES,
                                       **locals())
             plpy.execute(insert_query)
+
 
 class AutoMLHyperband(KerasAutoML):
     """

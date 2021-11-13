@@ -1064,9 +1064,9 @@ __internal_gpu_config__ | all_segments
 -# Define and load model architecture.  Use Keras to define
 the model architecture:
 <pre class="example">
-from tensorflow import keras
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
 model_simple = Sequential()
 model_simple.add(Dense(10, activation='relu', input_shape=(4,)))
 model_simple.add(Dense(10, activation='relu'))

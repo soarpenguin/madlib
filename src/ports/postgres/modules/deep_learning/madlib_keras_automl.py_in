@@ -29,6 +29,7 @@ from utilities.validate_args import table_exists, drop_tables, input_tbl_valid
 from utilities.validate_args import quote_ident
 from deep_learning.madlib_keras_helper import DISTRIBUTION_KEY_COLNAME
 
+
 class AutoMLConstants:
     BRACKET = 's'
     ROUND = 'i'
@@ -54,6 +55,7 @@ class AutoMLConstants:
     TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
     INT_MAX = 2 ** 31 - 1
     TARGET_SCHEMA = 'public'
+
 
 class KerasAutoML(object):
     """

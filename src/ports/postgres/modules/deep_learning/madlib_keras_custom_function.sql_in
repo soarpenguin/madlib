@@ -247,12 +247,12 @@ cur = conn.cursor()
 import dill
 \# custom loss
 def squared_error(y_true, y_pred):
-    import tensorflow.keras.backend as K
+    import keras.backend as K
     return K.square(y_pred - y_true)
 pb_squared_error=dill.dumps(squared_error)
 \# custom metric
 def rmse(y_true, y_pred):
-    import tensorflow.keras.backend as K
+    import keras.backend as K
     return K.sqrt(K.mean(K.square(y_pred - y_true), axis=-1))
 pb_rmse=dill.dumps(rmse)
 \# call load function
@@ -278,7 +278,7 @@ RETURNS BYTEA AS
 $$
 import dill
 def squared_error(y_true, y_pred):
-    import tensorflow.keras.backend as K
+    import keras.backend as K
     return K.square(y_pred - y_true)
 pb_squared_error=dill.dumps(squared_error)
 return pb_squared_error
@@ -288,7 +288,7 @@ RETURNS BYTEA AS
 $$
 import dill
 def rmse(y_true, y_pred):
-    import tensorflow.keras.backend as K
+    import keras.backend as K
     return K.sqrt(K.mean(K.square(y_pred - y_true), axis=-1))
 pb_rmse=dill.dumps(rmse)
 return pb_rmse
@@ -458,7 +458,7 @@ n INTEGER,
 fn_name VARCHAR
 ) RETURNS BYTEA AS $$
     import dill
-    from tensorflow.keras.metrics import top_k_categorical_accuracy
+    from keras.metrics import top_k_categorical_accuracy
 
     def fn(Y_true, Y_pred):
         return top_k_categorical_accuracy(Y_true,

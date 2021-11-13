@@ -29,6 +29,7 @@ from deep_learning.madlib_keras_helper import MODEL_WEIGHTS_COLNAME
 from deep_learning.madlib_keras_helper import NORMALIZING_CONST_COLNAME
 from deep_learning.madlib_keras_helper import create_summary_view
 
+
 class PredictParamsProcessor:
     def __init__(self, model_table, module_name, mst_key):
         self.module_name = module_name

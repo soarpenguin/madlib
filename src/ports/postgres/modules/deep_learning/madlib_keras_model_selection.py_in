@@ -35,8 +35,9 @@ from utilities.utilities import add_postfix, _assert, _assert_equal, extract_key
 from utilities.utilities import quote_ident, get_schema, is_platform_pg
 from utilities.validate_args import table_exists, drop_tables
 
-from tensorflow.keras import losses as losses
-from tensorflow.keras import metrics as metrics
+from keras import losses as losses
+from keras import metrics as metrics
+
 
 class ModelSelectionSchema:
     MST_KEY = 'mst_key'
@@ -49,6 +50,7 @@ class ModelSelectionSchema:
     GRID_SEARCH='grid'
     RANDOM_SEARCH='random'
     OPTIMIZER_PARAMS_LIST = 'optimizer_params_list'
+
 
 @MinWarning("warning")
 class MstLoader():
@@ -230,6 +232,7 @@ class MstLoader():
                                   **locals())
         plpy.execute(insert_summary_query)
 
+
 @MinWarning("warning")
 class MstSearch():
     """
@@ -403,7 +406,7 @@ class MstSearch():
         if not compile_params_lst:
             plpy.error( "compile_params_list cannot be NULL")
         custom_fn_name = []
-        ## Initialize builtin loss/metrics functions
+        # Initialize builtin loss/metrics functions
         builtin_losses = dir(losses)
         builtin_metrics = dir(metrics)
         # Default metrics, since it is not part of the builtin metrics list

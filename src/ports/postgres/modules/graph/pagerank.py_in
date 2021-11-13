@@ -47,9 +47,8 @@ from utilities.utilities import unique_string, split_quoted_delimited_str
 from utilities.utilities import is_platform_pg
 from utilities.utilities import py_list_to_sql_string
 
-#from utilities.validate_args import columns_exist_in_table, get_cols_and_types
-#from utilities.validate_args import table_exists
-import utilities.validate_args
+from utilities.validate_args import columns_exist_in_table, get_cols_and_types
+from utilities.validate_args import table_exists
 from utilities.utilities import rename_table
 
 
@@ -785,4 +784,4 @@ SELECT {schema_madlib}.pagerank('usage');
 """
 
     return help_string.format(schema_madlib=schema_madlib)
-# -------------------------------------
+# ---------------------------------------------------------------------
