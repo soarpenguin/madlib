@@ -989,7 +989,7 @@ def _grp_null_checks(grp_list):
     Args:
         @param grp_list   The list of grouping columns
     """
-    return ' AND '.join([" {i} IS NOT NULL ".format(**locals())
+    return ' AND '.join([f" {i} IS NOT NULL ".format(**locals())
                          for i in grp_list])
 # ------------------------------------------------------------------------------
 
@@ -1003,7 +1003,7 @@ def _check_groups(tbl1, tbl2, grp_list):
             @param grp_list   The list of grouping columns
     """
 
-    return ' AND '.join([" {tbl1}.{i} = {tbl2}.{i} ".format(**locals())
+    return ' AND '.join([f" {tbl1}.{i} = {tbl2}.{i} ".format(**locals())
                          for i in grp_list])
 # ------------------------------------------------------------------------------
 
@@ -1036,7 +1036,7 @@ def get_table_qualified_col_str(tbl_name, col_list):
             @param tbl        Name of the table
             @param grp_list   The list of grouping columns
     """
-    return ' , '.join([" {tbl_name}.{col} ".format(**locals())
+    return ' , '.join([f" {tbl_name}.{col} ".format(**locals())
                        for col in col_list])
 # ------------------------------------------------------------------------------
 

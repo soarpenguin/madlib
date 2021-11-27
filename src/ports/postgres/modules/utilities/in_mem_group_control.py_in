@@ -473,9 +473,9 @@ class GroupIterationController:
 
         @param condition SQL boolean expression. The
             following names are defined and can be used in the condition:
-            - \c _args  - The (single-row) argument table
-            - \c _state - In memory inter-iteration state
-        @return True if \c expression in all non-failed groups is True,
+            - _args  - The (single-row) argument table
+            - _state - In memory inter-iteration state
+        @return True if expression in all non-failed groups is True,
                 otherwise False
         """
         if len(self.new_states) == 0:
@@ -512,6 +512,7 @@ class GroupIterationController:
                        unnest_str_current=unnest_str_current,
                        unnest_str_previous=unnest_str_previous, **self.kwargs),
             ["text[]", grouped_state_type] * 2)
+
 
         res = plpy.execute(eval_plan,
                            [self.old_states.keys,

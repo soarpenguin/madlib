@@ -60,16 +60,18 @@ def validate_wcc_args(schema_madlib, vertex_table, vertex_id, edge_table,
                 "Weakly Connected Components error: "
                 "One or more grouping columns specified do not exist!")
 
+
 def wcc(schema_madlib, vertex_table, vertex_id, edge_table, edge_args,
         out_table, grouping_cols, **kwargs):
     """
     Function that computes the wcc
 
     Args:
+        @param schema_madlib
         @param vertex_table
         @param vertex_id
         @param edge_table
-        @param dest_vertex
+        @param edge_args
         @param out_table
         @param grouping_cols
     """
@@ -201,7 +203,7 @@ def wcc(schema_madlib, vertex_table, vertex_id, edge_table, edge_args,
                 FROM {vertex_table}
                 {distribution}
             """.format(**locals()))
-        plpy.execute("""
+        plpy.execute(f"""
                 CREATE TEMP TABLE {message} AS
                 SELECT {vertex_id}, CAST({vertex_id} AS BIGINT) AS {component_id}
                 FROM {vertex_table}
