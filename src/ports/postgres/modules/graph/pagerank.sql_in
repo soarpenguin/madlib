@@ -357,7 +357,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pagerank(
 ) RETURNS VOID AS $$
     PythonFunction(graph, pagerank, pagerank)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pagerank(
     vertex_table    TEXT,
@@ -431,7 +431,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pagerank(
 ) RETURNS VARCHAR AS $$
     PythonFunction(graph, pagerank, pagerank_help)
 $$ LANGUAGE plpython3u IMMUTABLE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `CONTAINS SQL', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 --------------------------------------------------------------------------------
 
@@ -439,5 +439,5 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.pagerank()
 RETURNS VARCHAR AS $$
     SELECT MADLIB_SCHEMA.pagerank('');
 $$ LANGUAGE sql IMMUTABLE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `CONTAINS SQL', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 --------------------------------------------------------------------------------

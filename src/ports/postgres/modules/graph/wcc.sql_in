@@ -510,7 +510,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.weakly_connected_components(
 ) RETURNS VOID AS $$
     PythonFunction(graph, wcc, wcc)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.weakly_connected_components(
     vertex_table            TEXT,
@@ -522,7 +522,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.weakly_connected_components(
 ) RETURNS VOID AS $$
      SELECT MADLIB_SCHEMA.weakly_connected_components($1, $2, $3, $4, $5, NULL);
 $$ LANGUAGE sql VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 -- HELPER functions
 -------------------------------------------------------------------------
@@ -533,7 +533,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_largest_cpt(
 ) RETURNS VOID AS $$
     PythonFunction(graph, wcc, graph_wcc_largest_cpt)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_histogram(
@@ -543,7 +543,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_histogram(
 ) RETURNS VOID AS $$
     PythonFunction(graph, wcc, graph_wcc_histogram)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_vertex_check(
@@ -554,7 +554,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_vertex_check(
 ) RETURNS VOID AS $$
     PythonFunction(graph, wcc, graph_wcc_vertex_check)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_reachable_vertices(
@@ -565,7 +565,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_reachable_vertices(
 ) RETURNS VOID AS $$
     PythonFunction(graph, wcc, graph_wcc_reachable_vertices)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_num_cpts(
@@ -575,7 +575,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.graph_wcc_num_cpts(
 ) RETURNS VOID AS $$
     PythonFunction(graph, wcc, graph_wcc_num_cpts)
 $$ LANGUAGE plpython3u VOLATILE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `MODIFIES SQL DATA', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `MODIFIES SQL DATA', `');
 -------------------------------------------------------------------------
 
 -------------------------------------------------------------------------
@@ -586,7 +586,7 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.weakly_connected_components(
 ) RETURNS VARCHAR AS $$
     PythonFunction(graph, wcc, wcc_help)
 $$ LANGUAGE plpython3u IMMUTABLE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `CONTAINS SQL', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 
 -------------------------------------------------------------------------------
 
@@ -594,6 +594,6 @@ CREATE OR REPLACE FUNCTION MADLIB_SCHEMA.weakly_connected_components()
 RETURNS VARCHAR AS $$
     SELECT MADLIB_SCHEMA.weakly_connected_components('');
 $$ LANGUAGE sql IMMUTABLE
-m4_ifdef(`\_\_HAS_FUNCTION_PROPERTIES\_\_', `CONTAINS SQL', `');
+m4_ifdef(`__HAS_FUNCTION_PROPERTIES__', `CONTAINS SQL', `');
 -------------------------------------------------------------------------------
 
