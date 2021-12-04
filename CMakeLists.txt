@@ -41,6 +41,7 @@ set(EXTERNALPROJECT_LIST_SEPARATOR "~!~")
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(LINUX TRUE)
+    message(STATUS "!!TODO Platform in linux ${LINUX}")
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "SunOS")
@@ -58,6 +59,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif(NOT CMAKE_BUILD_TYPE)
 
 if (CXX11)
+    message(STATUS "!!TODO Platform in ${CXX11}")
     SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O1 -g"
         CACHE STRING
         "Flags used by the CXX compiler during RELWITHDEBINFO builds." FORCE)
@@ -88,6 +90,7 @@ endif(CXX11)
 # we need to use Boost_VERSION_MACRO instead.
 find_package(Boost)
 if(Boost_FOUND)
+    message(STATUS "!!TODO Platform found Boost ${Boost_FOUND}")
     if(Boost_VERSION_MACRO)
         set(LOCAL_Boost_VERSION ${Boost_VERSION_MACRO})
     else(Boost_VERSION_MACRO)
@@ -113,6 +116,7 @@ if(Boost_FOUND)
 endif(Boost_FOUND)
 
 if(CMAKE_COMPILER_IS_GNUCC)
+    message(STATUS "!!TODO Platform cmake compiler is gnucc ${CMAKE_COMPILER_IS_GNUCC}")
     # Let's store the gcc version in a variable
     execute_process(COMMAND ${CMAKE_C_COMPILER} -dumpversion
         OUTPUT_VARIABLE GNUCC_VERSION
@@ -143,6 +147,7 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "SunPro")
 endif()
  
 if(CMAKE_COMPILER_IS_GNUCXX)
+    message(STATUS "!!TODO Platform cmake compiler is gnucxx ${CMAKE_COMPILER_IS_GNUCXX}")
     # Let's store the gcc version in a variable
     execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion
         OUTPUT_VARIABLE GNUCXX_VERSION
@@ -216,12 +221,14 @@ if(FREEBSD)
 set(M4_ARGUMENTS "-P")
 else()
 set(M4_ARGUMENTS "--prefix-builtins")
+message(STATUS "!!TODO Platform set M4_ARGUMENTS ${M4_ARGUMENTS}")
 endif()
 
 # -- Local includes ------------------------------------------------------------
 
 list(APPEND CMAKE_MODULE_PATH
     "${MAD_BUILD_TOOLS}")
+message(STATUS "!!TODO Platform 's CMAKE_MODULE_PATH ${MAD_BUILD_TOOLS}")
 
 # -- Include all parts ---------------------------------------------------------
 
@@ -286,6 +293,7 @@ else()
         PATHS /usr/local/bin /usr/bin /bin /opt/local/bin
         DOC "Path to the GNU m4 preprocessor."
     )
+    message(STATUS "!!TODO M4 preprocessor path is ${M4_BINARY}")
 endif()
 
 if(NOT M4_BINARY)
@@ -314,6 +322,7 @@ install(
     COMPONENT core
 )
 
+message(STATUS "!!TODO Platform 's CMAKE_CURRENT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}")
 
 # -- Add subdirectories --------------------------------------------------------
 

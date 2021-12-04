@@ -11,6 +11,7 @@
 # ${DBMS_UC}_VERSION_MINOR
 # ${DBMS_UC}_VERSION_PATCH
 # ${DBMS_UC}_ARCHITECTURE
+message(STATUS "!!TODO Platform run into Utils")
 function(define_m4_macros OUT_M4_CMD_LINE OUT_M4_CODE)
     set(IN_FEATURES ${ARGN})
 

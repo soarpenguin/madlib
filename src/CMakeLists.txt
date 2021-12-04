@@ -5,6 +5,7 @@
 # -- Paths and MD5 hashes of third-party downloadable source code (third-party
 #    components needed only by specific ports are downloaded there) ------------
 
+message(STATUS "!!TODO Platform run in src/CMakeLists.txt")
 set(MADLIB_REDIRECT_PREFIX "")
 
 if(NOT GPPKG_VER)
